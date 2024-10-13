@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(smart_home_dashboard LANGUAGES CXX)
+project(smarthome LANGUAGES CXX)
 
 find_package(Slint QUIET)
 if (NOT Slint_FOUND)
@@ -16,10 +16,10 @@ if (NOT Slint_FOUND)
   FetchContent_MakeAvailable(Slint)
 endif (NOT Slint_FOUND)
 
-add_executable(smart_home_dashboard src/main.cpp)
-target_link_libraries(smart_home_dashboard PRIVATE Slint::Slint)
-slint_target_sources(smart_home_dashboard ui/main_window.slint)
+add_executable(smarthome src/main.cpp)
+target_link_libraries(smarthome PRIVATE Slint::Slint)
+slint_target_sources(smarthome ui/main_window.slint)
 # On Windows, copy the Slint DLL next to the application binary so that it's found.
 if (WIN32)
-    add_custom_command(TARGET smart_home_dashboard POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:smart_home_dashboard> $<TARGET_FILE_DIR:smart_home_dashboard> COMMAND_EXPAND_LISTS)
+    add_custom_command(TARGET smarthome POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:smarthome> $<TARGET_FILE_DIR:smarthome> COMMAND_EXPAND_LISTS)
 endif()

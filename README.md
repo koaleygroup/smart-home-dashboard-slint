@@ -1,12 +1,10 @@
-# Slint C++ Template
+# Smart Home Dashboard in Slint C++
 
-A template for a C++ application that's using [Slint](https://slint.dev) for the user interface and CMake for the build system.
+A Smart Home C++ application that's using [Slint](https://slint.dev) for the user interface and CMake for the build system. The app is intended to be run on Raspberry Pi 4 having a 10" capacitive screen, but for development purposes we'll be working on desktop.
 
 ## About
 
-This template helps you get started developing a C++ application with Slint as toolkit
-for the user interface. It demonstrates the integration between the `.slint` UI markup and
-C++ code, how to trigger react to callbacks, get and set properties and use basic widgets.
+This is a port of our existing Qt/QML implementation of a smart home dashboard. Similar to the Qt implementation, this sample only contains the UI and bit of logic to simulate the data received from sensors/api without the real API/sensor integration.
 
 ## Prerequisites
 
@@ -23,11 +21,10 @@ Alternatively, this template will automatically download the Slint sources and c
 
 ## Usage
 
-1. Download and extract the [ZIP archive of this repository](https://github.com/slint-ui/slint-cpp-template/archive/refs/heads/main.zip).
-2. Rename the extracted directory and change into it:
+2. Clone the git repo and navigate into it:
     ```
-    mv slint-cpp-template-main my-project
-    cd my-project
+    git clone https://github.com/koaleygroup/smart-home-dashboard-slint
+    cd smart-home-dashboard-slint
     ```
 3. Configure with CMake
    ```
@@ -41,18 +38,9 @@ Alternatively, this template will automatically download the Slint sources and c
 5. Run the application binary
     * Linux/macOS:
         ```
-        ./build/my_application
+        ./build/smarthome
         ```
     * Windows:
         ```
-        build\my_application.exe
+        build\Debug\smarthome.exe
         ```
-
-We recommend using an IDE for development, along with our [LSP-based IDE integration for `.slint` files](https://github.com/slint-ui/slint/blob/master/tools/lsp/README.md). You can also load this project directly in [Visual Studio Code](https://code.visualstudio.com) and install our [Slint extension](https://marketplace.visualstudio.com/items?itemName=Slint.slint).
-
-## Next Steps
-
-We hope that this template helps you get started and you enjoy exploring making user interfaces with Slint. To learn more
-about the Slint APIs and the `.slint` markup language check out our [online documentation](https://slint.dev/docs/cpp/).
-
-Don't forget to edit this README to replace it by yours

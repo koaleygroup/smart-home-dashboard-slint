@@ -1,17 +1,75 @@
-import { Button, VerticalBox } from "std-widgets.slint";
+import { Assets } from "assets.slint";
+import { Theme } from "theme.slint";
+import { Card, ParameterCard } from "widgets.slint";
+
 
 export component AppWindow inherits Window {
-    in-out property<int> counter: 42;
-    callback request-increase-value();
-    VerticalBox {
-        Text {
-            text: "Counter: \{root.counter}";
-        }
-        Button {
-            text: "Increase value";
-            clicked => {
-                root.request-increase-value();
+    title: "Smart Home Dashboard - Koaley Group";
+    width: 1020px;
+    height: 720px;
+    background: Theme.palette.blue-pink-gradient;
+    icon: Assets.logo;
+
+    HorizontalLayout {
+        padding: 70px;
+        spacing: Theme.dimensions.spacing;
+
+        VerticalLayout {
+            width: 390px;
+            spacing: 16px;
+
+            Card {
+                vertical-stretch: 0.4;
             }
+
+            Card {
+
+            }
+
+            Card {
+                vertical-stretch: 0.25;
+            }
+        }   
+        
+        VerticalLayout {
+            width: 160px;
+            spacing: 8px;
+
+            ParameterCard {
+                label: "Temperature";
+                value: 25.4;
+                units: "*C";
+            }
+
+            ParameterCard {
+                label: "Humidity";
+                value: 56;
+                units: "%";
+            }
+
+            ParameterCard {
+                label: "Heating";
+                value: 35;
+                units: "*C";
+            }
+
+            ParameterCard {
+                label: "Water";
+                value: 234;
+                units: "kpa";
+            }
+        }  
+
+        VerticalLayout {
+            spacing: 16px;
+
+            Card {
+                height: self.width;
+            }
+
+            Card {}
+
+            Card {}
         }
-     }
+    }
 }

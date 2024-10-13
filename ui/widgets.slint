@@ -1,0 +1,55 @@
+import { Theme } from "theme.slint";
+
+export component Card inherits Rectangle {
+    background: Theme.palette.card-background.with-alpha(0.6);
+    border-radius: Theme.dimensions.card-border-radius;
+    min-height: 50px;
+    min-width: 50px;
+
+    @children
+}
+
+export component ParameterCard inherits Card {
+    in property <float> value: 234;
+    in property <string> units: "kpa";
+    in property <string> label: "Temperature";
+
+    VerticalLayout {
+        spacing: 8px;
+        padding: 16px;
+
+        Text {
+            font-size: Theme.textSize.small;
+            color: Theme.palette.text-primary;
+            text: root.label;
+            width: parent.width - 32px;
+            font-weight: 500;
+        }
+
+        HorizontalLayout {
+            Rectangle {
+                horizontal-stretch: 1;
+            }
+
+            Text {
+                font-size: Theme.textSize.large;
+                color: Theme.palette.text-primary;
+                text: root.value;
+                horizontal-stretch: 0;
+                font-weight: 500;
+            }
+
+            Text {
+                text: root.units;
+                font-size: Theme.textSize.small;
+                color: Theme.palette.text-primary;
+                horizontal-stretch: 0;
+                font-weight: 400;
+            }
+
+            Rectangle {
+                horizontal-stretch: 1;
+            }
+        }
+    }
+}

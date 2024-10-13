@@ -32,6 +32,5 @@
 *.app
 
 
-# Build & VS Code
+# VS Code
 build
-.vscode

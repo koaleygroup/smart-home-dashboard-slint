@@ -1,0 +1,45 @@
+
+export struct Palette {
+    blue-pink-gradient: brush,
+    card-background: color,
+    text-primary: color,
+    progress-background: color,
+    progress-foreground: color
+}
+
+export struct Dimensions {
+    card-border-radius: length,
+    spacing: length
+}
+
+export struct TextSize {
+    defaut: length,
+    small: length,
+    large: length,
+    xlarge: length
+}
+
+export global Theme {
+    // Color palette
+    in property <Palette> palette: {
+        blue-pink-gradient: @linear-gradient(90deg, #0D8BFD 0%, #866AFF),
+        card-background: #1E1F2A,
+        text-primary: #D9D9D9,
+        progress-background: #48709F,
+        progress-foreground: #5CE1E6
+    };
+
+    // Dimensions
+    in property <Dimensions> dimensions: {
+        card-border-radius: 16px,
+        spacing: 30px
+    };
+
+    // Font Sizes
+    in property <TextSize> textSize: {
+        defaut: 16px,
+        small: 14px,
+        large: 48px,
+        xlarge: 72px
+    };
+}

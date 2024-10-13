@@ -16,7 +16,7 @@ if (NOT Slint_FOUND)
   FetchContent_MakeAvailable(Slint)
 endif (NOT Slint_FOUND)
 
-add_executable(smarthome src/main.cpp)
+add_executable(smarthome src/main.cpp src/smarthome.h src/smarthome.cpp)
 target_link_libraries(smarthome PRIVATE Slint::Slint)
 slint_target_sources(smarthome ui/main_window.slint)
 # On Windows, copy the Slint DLL next to the application binary so that it's found.

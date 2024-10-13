@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c890586e9f33b07d780086a5756b656a\slint-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\0318b03f155e208aaa0430758168580c\slint-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\c34dc5fa02b32c29ef2cefb68f2da3cf\slint-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-subbuild\CMakeFiles\slint-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B20F14CF-2BA7-3D31-90EE-58A95B64C021}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

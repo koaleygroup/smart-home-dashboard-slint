@@ -1,0 +1,150 @@
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-MKDIR.RULE
+setlocal
+C:\Qt\Tools\CMake_64\bin\cmake.exe -Dcfgdir=/Debug -P B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/tmp/slint-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-DOWNLOAD.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -P B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/tmp/slint-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-UPDATE.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-src
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -Dcan_fetch=YES -P B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/tmp/slint-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-PATCH.RULE
+setlocal
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-CONFIGURE.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-build
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-BUILD.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-build
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-INSTALL.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-build
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C890586E9F33B07D780086A5756B656A\SLINT-POPULATE-TEST.RULE
+setlocal
+cd B:\Repos\slint-projects\smart-home-dashboard\build\_deps\slint-build
+if %errorlevel% neq 0 goto :cmEnd
+B:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\0318B03F155E208AAA0430758168580C\SLINT-POPULATE-COMPLETE.RULE
+setlocal
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/CMakeFiles/Debug/slint-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate-prefix/src/slint-populate-stamp/Debug/slint-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C34DC5FA02B32C29EF2CEFB68F2DA3CF\SLINT-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKELISTS.TXT
+setlocal
+C:\Qt\Tools\CMake_64\bin\cmake.exe -SB:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild -BB:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild --check-stamp-file B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

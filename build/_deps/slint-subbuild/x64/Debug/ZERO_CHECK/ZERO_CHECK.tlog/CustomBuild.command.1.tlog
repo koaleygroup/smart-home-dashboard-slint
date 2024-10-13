@@ -1,0 +1,10 @@
+^B:\REPOS\SLINT-PROJECTS\SMART-HOME-DASHBOARD\BUILD\_DEPS\SLINT-SUBBUILD\CMAKEFILES\C34DC5FA02B32C29EF2CEFB68F2DA3CF\GENERATE.STAMP.RULE
+setlocal
+C:\Qt\Tools\CMake_64\bin\cmake.exe -SB:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild -BB:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file B:/Repos/slint-projects/smart-home-dashboard/build/_deps/slint-subbuild/slint-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

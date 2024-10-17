@@ -1,6 +1,6 @@
 import { Assets } from "assets.slint";
 import { Theme } from "theme.slint";
-import { Card, ParameterCard } from "widgets.slint";
+import { Card, ParameterCard, CircularGauge, PowerGauge } from "widgets.slint";
 
 
 export component AppWindow inherits Window {
@@ -10,35 +10,32 @@ export component AppWindow inherits Window {
     background: Theme.palette.blue-pink-gradient;
     icon: Assets.logo;
 
+    // 
+    in property <[{label: string, icon: image}]> home-locations: [];
     HorizontalLayout {
         padding: 70px;
         spacing: Theme.dimensions.spacing;
-
         VerticalLayout {
             width: 390px;
             spacing: 16px;
-
             Card {
                 vertical-stretch: 0.4;
             }
 
-            Card {
-
-            }
+            Card { }
 
             Card {
                 vertical-stretch: 0.25;
             }
-        }   
-        
+        }
+
         VerticalLayout {
             width: 160px;
             spacing: 8px;
-
             ParameterCard {
                 label: "Temperature";
                 value: 25.4;
-                units: "*C";
+                units: "ºC";
             }
 
             ParameterCard {
@@ -50,7 +47,7 @@ export component AppWindow inherits Window {
             ParameterCard {
                 label: "Heating";
                 value: 35;
-                units: "*C";
+                units: "ºC";
             }
 
             ParameterCard {
@@ -58,18 +55,24 @@ export component AppWindow inherits Window {
                 value: 234;
                 units: "kpa";
             }
-        }  
+        }
 
         VerticalLayout {
             spacing: 16px;
 
             Card {
                 height: self.width;
+
+                // Display power circular progress bar
+                PowerGauge {
+                    width: parent.width;
+                    height: parent.height;
+                }
             }
 
-            Card {}
+            Card { }
 
-            Card {}
+            Card { }
         }
     }
 }

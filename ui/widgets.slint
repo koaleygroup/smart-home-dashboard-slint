@@ -1,7 +1,7 @@
 import { Theme } from "theme.slint";
 
 export component Card inherits Rectangle {
-    background: Theme.palette.card-background.with-alpha(0.6);
+    background: Theme.palette.card-background.with-alpha(0.7);
     border-radius: Theme.dimensions.card-border-radius;
     min-height: 50px;
     min-width: 50px;
@@ -15,7 +15,7 @@ export component ParameterCard inherits Card {
     in property <string> label: "Temperature";
 
     VerticalLayout {
-        spacing: 8px;
+        spacing: 0px;
         padding: 16px;
 
         Text {
@@ -31,25 +31,117 @@ export component ParameterCard inherits Card {
                 horizontal-stretch: 1;
             }
 
-            Text {
-                font-size: Theme.textSize.large;
-                color: Theme.palette.text-primary;
-                text: root.value;
-                horizontal-stretch: 0;
-                font-weight: 500;
+            VerticalLayout {
+                Rectangle {}
+
+                HorizontalLayout {
+                label-text := Text {
+                    font-size: Theme.textSize.large;
+                    color: Theme.palette.text-primary;
+                    text: root.value;
+                    horizontal-stretch: 0;
+                    vertical-stretch: 0;
+                    font-weight: 500;
+                    vertical-alignment: bottom;
+                }
+    
+                Text {
+                    text: root.units;
+                    font-size: Theme.textSize.small;
+                    color: Theme.palette.text-primary;
+                    horizontal-stretch: 0;
+                    vertical-stretch: 0;
+                    font-weight: 400;
+                    // y: label-text.y;
+                }
             }
 
-            Text {
-                text: root.units;
-                font-size: Theme.textSize.small;
-                color: Theme.palette.text-primary;
-                horizontal-stretch: 0;
-                font-weight: 400;
+                Rectangle {}
             }
+
+            
 
             Rectangle {
                 horizontal-stretch: 1;
             }
         }
+    }
+}
+
+export component CircularGauge {
+    width: size;
+    height: size;
+
+    in property <length> thickness: 20px;
+    in property <float> progress: 0.5;
+    in property <float> start: 0;
+    in property <length> size: 300px;
+
+    // Color scheme
+    in property <color> gauge-background: Theme.palette.progress-background;
+    in property <color> gauge-foreground: Theme.palette.progress-foreground;
+    in property <color> text-color: Theme.palette.text-primary;
+
+    property <float> inner-radius: root.radius - root.thickness/1px;
+    property <float> radius: root.size/2px;
+
+    // Circular gauge background
+    Rectangle {
+        width: root.size;
+        height: root.size;
+        border-color: root.gauge-background;
+        border-radius: self.height/2;
+        border-width: root.thickness;
+
+        Path {
+            viewbox-width: parent.width/1px;
+            viewbox-height: parent.height/1px;
+            stroke: root.gauge-foreground;
+            fill: root.gauge-foreground;
+
+            MoveTo {
+                y: root.radius - root.radius * cos(-root.start * 360deg);
+                x: root.radius - root.radius * sin(-root.start * 360deg);
+            }
+
+            ArcTo {
+                radius-x: root.thickness/2px;
+                radius-y: root.thickness/2px;        
+                y: root.radius - root.inner-radius * cos(-root.start * 360deg);
+                x: root.radius - root.inner-radius * sin(-root.start * 360deg);
+            }
+
+            ArcTo {
+                radius-x: root.inner-radius;
+                radius-y: root.inner-radius;
+                y: root.radius - root.inner-radius*cos(-(root.start + root.progress) * 360deg);
+                x: root.radius - root.inner-radius*sin(-(root.start + root.progress) * 360deg);
+                sweep: root.progress > 0;
+                large-arc: root.progress > 0.5;
+            }
+
+            ArcTo {
+                radius-x: root.thickness/2px;
+                radius-y: root.thickness/2px;    
+                y: root.radius - root.radius*cos(-(root.start + root.progress) * 360deg);
+                x: root.radius - root.radius*sin(-(root.start + root.progress) * 360deg);
+            }
+
+            ArcTo {
+                radius-x: root.radius;
+                radius-y: root.radius;
+                y: root.radius - root.radius * cos(-root.start * 360deg);
+                x: root.radius - root.radius * sin(-root.start * 360deg);
+                sweep: root.progress < 0;
+                large-arc: root.progress > 0.5;
+            }
+
+            LineTo {
+                y: root.radius - root.radius * cos(-root.start * 360deg);
+                x: root.radius - root.radius * sin(-root.start * 360deg);
+            }
+        }
+
+        @children
     }
 }

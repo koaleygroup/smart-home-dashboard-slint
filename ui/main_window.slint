@@ -1,6 +1,6 @@
 import { Assets } from "assets.slint";
 import { Theme } from "theme.slint";
-import { Card, ParameterCard, CircularGauge, PowerGauge } from "widgets.slint";
+import { Card, ParameterCard, CircularGauge, PowerGauge, CheckBox } from "widgets.slint";
 
 
 export component AppWindow inherits Window {
@@ -70,7 +70,28 @@ export component AppWindow inherits Window {
                 }
             }
 
-            Card { }
+            Card { 
+                VerticalLayout {
+                    padding: 16px;
+                    spacing: 8px;
+
+                    for item[index] in [
+                        {label: "Windows", checked: false},
+                        {label: "Blinders", checked: false},
+                        {label: "Curtains", checked: false}
+                    ]: HorizontalLayout {
+                        Text {
+                            text: item.label;
+                            font-size: Theme.textSize.defaut;
+                            color: Theme.palette.text-primary;
+                        }
+
+                        CheckBox {
+                            
+                        }
+                    }
+                }
+            }
 
             Card { }
         }

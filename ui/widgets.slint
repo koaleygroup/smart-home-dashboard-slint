@@ -145,3 +145,123 @@ export component CircularGauge {
         @children
     }
 }
+
+export component PowerGauge {
+
+    CircularGauge {
+        size: parent.height * 0.8;
+        thickness: 18px;
+
+        HorizontalLayout {
+            Rectangle { }
+
+            VerticalLayout {
+                spacing: -10px;
+                Rectangle { }
+
+                Text {
+                    font-size: Theme.textSize.defaut;
+                    text: "Power";
+                    horizontal-alignment: txt.preferred-width > 50px ? left : center;
+                }
+
+                txt := Text {
+                // min-width: 100px;
+                font-size: Theme.textSize.large;
+                    text: "2,834";
+                    vertical-stretch: 0;
+                    horizontal-alignment: center;
+                }
+
+                Text {
+                    font-size: Theme.textSize.defaut;
+                    text: "kW";
+                    horizontal-alignment: txt.preferred-width > 50px ? right : center;
+                }
+
+                Rectangle { }
+            }
+
+            Rectangle { }
+        }
+    }
+}
+
+export component CheckBox inherits Rectangle {
+    border-radius: self.height/2;
+    height: 24px;
+    width: self.height * 2;
+    background: Theme.palette.progress-background;
+
+    // Callback to propagate the state changed
+    in-out property <bool> checked: false;
+
+    indicator := Rectangle {
+        height: root.height - 4px;
+        width: root.height - 4px;
+        border-radius: self.height/2;
+        background: root.checked ? white : Theme.palette.progress-foreground;
+        x: root.checked ? root.width - self.width - 2px : 2px;
+
+        animate x { duration: 200ms; easing: ease-in-out-quad;}
+        animate background { duration: 200ms; easing: ease-in-out-quad;}
+    }
+
+    // 
+    ta := TouchArea {
+        clicked => { root.checked = !root.checked; }
+    }
+}
+
+export component ProgressBar inherits Rectangle {
+    height: 24px;
+    background: #494F56;
+    border-radius: self.height/2;
+
+    in property <float> progress: 0;
+
+    indicator := Rectangle {
+        x: 0;
+        height: root.height;
+        width: root.width * Math.clamp(root.progress, 0, 1);
+        border-radius: self.height/2;
+        background: Theme.palette.progress-foreground;
+
+        animate width { duration: 200ms; easing: ease-in-out-quad;}
+    }
+}
+
+export component LightIntensityCard inherits Card {
+    property <bool> enabled <=> cb.checked;
+    
+    VerticalLayout {
+        padding: 16px;
+        spacing: 8px;
+
+        HorizontalLayout {
+            Text {
+                text: "Light Intensity";
+                font-size: Theme.textSize.defaut;
+                color: Theme.palette.text-primary;
+            }
+
+            cb := CheckBox { checked: true; }
+        }
+
+        Rectangle {}
+
+        pb := ProgressBar {
+            opacity: root.enabled ? 1 : 0.7;
+        }
+
+        Text {
+            text: "\{Math.floor(pb.progress * 100)} %";
+            font-size: Theme.textSize.defaut;
+            color: Theme.palette.text-primary;
+            horizontal-alignment: right;
+            opacity: root.enabled ? 1 : 0.7;
+        }
+
+        Rectangle {}
+    }
+}

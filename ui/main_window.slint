@@ -1,6 +1,7 @@
 import { Assets } from "assets.slint";
 import { Theme } from "theme.slint";
-import { Card, ParameterCard, CircularGauge, PowerGauge, CheckBox } from "widgets.slint";
+import { Card, ParameterCard, CircularGauge, PowerGauge, CheckBox, LightIntensityCard } from "widgets.slint";
+import { ListView, ScrollView } from "std-widgets.slint";
 
 
 export component AppWindow inherits Window {
@@ -11,7 +12,26 @@ export component AppWindow inherits Window {
     icon: Assets.logo;
 
     // 
-    in property <[{label: string, icon: image}]> home-locations: [];
+    in property <[{label: string, icon: string}]> home-locations: [
+        {
+            label: "Kitchen",
+            icon: Assets.kitchen
+        },
+        {
+            label: "Bedroom",
+            icon: Assets.bedroom
+        },
+        {
+            label: "Living Area",
+            icon: Assets.livingArea
+        },
+        {
+            label: "Office",
+            icon: Assets.office
+        }
+    ];
+    in-out property <int> current-location-index: 0;
+
     HorizontalLayout {
         padding: 70px;
         spacing: Theme.dimensions.spacing;
@@ -26,6 +46,69 @@ export component AppWindow inherits Window {
 
             Card {
                 vertical-stretch: 0.25;
+                clip: true;
+
+                indicator := Rectangle {
+                    x: calculateX(root.current-location-index);
+                    y: 95px;
+                    height: 4px;
+                    width: 100px;
+                    border-radius: self.height/2;
+                    background: Theme.palette.progress-foreground;
+
+                    animate x { duration: 200ms; easing: ease-in-out-bounce;}
+
+                    pure function calculateX(ind: int) -> length {
+                        return 24px + ((ind - 1) * 8px) + ind * 100px + sv.viewport-x;
+                    }
+                }
+                
+                sv := ScrollView {
+                    padding: 8px;
+
+                    function make_active_tab_visible() {
+                        // property<length> x: 0;
+
+                        // if sv.viewport-x
+                    }
+                    
+                    HorizontalLayout {
+                        padding: 16px;
+                        spacing: 8px;
+
+                        for location[ind] in root.home-locations: Rectangle {
+                            width: 100px;
+                            opacity: (10 - ind)/10;                            
+
+                            property <bool> active: ind == root.current-location-index;
+
+                            TouchArea {
+                                clicked => { root.current-location-index = ind; }
+                            }
+
+                            VerticalLayout {
+                                spacing: 8px;
+                                padding: 8px;
+
+                                Path {
+                                    commands: location.icon;
+                                    fill: active ? Theme.palette.progress-foreground : Theme.palette.text-primary;
+
+                                    animate fill { duration: 200ms; easing: ease-in-out-quad;}
+                                }
+
+                                Text {
+                                    text: location.label;
+                                    font-size: Theme.textSize.small;
+                                    color: active ? Theme.palette.progress-foreground : Theme.palette.text-primary;
+                                    horizontal-alignment: center;
+
+                                    animate color { duration: 200ms; easing: ease-in-out-quad;}
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -93,7 +176,7 @@ export component AppWindow inherits Window {
                 }
             }
 
-            Card { }
+            LightIntensityCard { }
         }
     }
 }

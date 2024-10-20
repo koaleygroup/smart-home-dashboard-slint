@@ -227,12 +227,13 @@ export component ProgressBar inherits Rectangle {
         border-radius: self.height/2;
         background: Theme.palette.progress-foreground;
 
-        animate width { duration: 200ms; easing: ease-in-out-quad;}
+        animate width { duration: 1000ms; easing: ease-in-out-quad;}
     }
 }
 
 export component LightIntensityCard inherits Card {
-    property <bool> enabled <=> cb.checked;
+    in property <bool> enabled <=> cb.checked;
+    in property <float> progress <=> pb.progress;
     
     VerticalLayout {
         padding: 16px;
@@ -251,6 +252,7 @@ export component LightIntensityCard inherits Card {
         Rectangle {}
 
         pb := ProgressBar {
+            progress: 0.15;
             opacity: root.enabled ? 1 : 0.7;
         }
 

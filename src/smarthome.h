@@ -11,7 +11,9 @@ public:
     // Start Eventloop here
     void run();
 
+private:
     // Handle Callbacks here
+    void on_update_current_datetime();
 
 private:
     // Store AppWindow handle in the class

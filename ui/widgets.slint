@@ -1,4 +1,5 @@
 import { Theme } from "theme.slint";
+import { Assets } from "assets.slint";
 
 export component Card inherits Rectangle {
     background: Theme.palette.card-background.with-alpha(0.7);
@@ -265,5 +266,130 @@ export component LightIntensityCard inherits Card {
         }
 
         Rectangle {}
+    }
+}
+
+export component WeatherCard inherits Card {
+    VerticalLayout {
+        padding: 24px;
+
+        Rectangle {
+            height: 30px;
+            opacity: ta.has-hover ? 0.5 : 1;
+
+            ta := TouchArea {}
+
+            HorizontalLayout {
+                alignment: space-between;
+
+                Text {
+                    font-size: Theme.textSize.defaut;
+                    color: Theme.palette.text-primary;
+                    text: "Today";
+                    vertical-alignment: center;
+                }
+
+                Image {
+                    source: Assets.dropdown;
+                    colorize: Theme.palette.text-primary;
+                }
+            }
+        }
+        
+
+        Rectangle {}
+
+        HorizontalLayout {
+            Rectangle {}
+
+            wTemp := Text {
+                font-size: 1.5 * Theme.textSize.xlarge;
+                color: Theme.palette.text-primary;
+                font-weight: 600;
+                text: "22";
+
+                // Weather Image
+                wImage := Image {
+                    height: 48px;
+                    source: Assets.partially-clouded;
+                    colorize: Theme.palette.text-primary;
+                    x: - (16px + self.preferred-height);
+                    y: wMinMax.y + wMinMax.preferred-height - self.height;
+                }  
+
+                // Min/Max temperature label /day
+                wMinMax := Text {
+                    font-size: Theme.textSize.defaut;
+                    color: Theme.palette.text-primary;
+                    font-weight: 500;
+                    text: "22/13";
+                    x: parent.width + 16px;
+                    y: 0.7 * parent.height;
+                }  
+
+                // Weather description at the bottom of  the tempt label
+                wdesc := Text {
+                    font-size: Theme.textSize.defaut;
+                    color: Theme.palette.text-primary;
+                    font-weight: 400;
+                    text: "Partially Clouded";
+                    vertical-alignment: bottom;
+                    y: parent.height;
+                }    
+            }
+
+            Rectangle {}
+        }
+        Rectangle {}
+    }
+}
+
+
+export component DateCard inherits Card {
+    background: transparent;
+
+    in property <string> date <=> dateStr.text;
+    in property <string> dayOfWeek <=> dowStr.text;
+    in property <string> time <=> timeStr.text;
+    in property <bool> is-am: true; // Is AM or PM
+
+    callback update-current-datetime <=> timer.triggered;
+
+    timer := Timer { interval: 1s; }
+
+    dateStr := Text {
+        font-size: Theme.textSize.defaut;
+        color: Theme.palette.text-primary;
+        text: "2024-12-12";
+        font-weight: 600;
+        x: 0;
+        y: 0;
+
+        dowStr := Text {
+            font-size: Theme.textSize.defaut;
+            color: Theme.palette.text-primary;
+            text: "WED";
+            font-weight: 600;
+            x: parent.width + 32px;
+            y: 0;
+        }
+    }
+
+    timeStr := Text {
+        font-size: Theme.textSize.large;
+        color: Theme.palette.text-primary;
+        text: "10:30";
+        font-weight: 600;
+        x: 0;
+
+        // AM / PM label
+        Text {
+            font-size: Theme.textSize.defaut;
+            color: Theme.palette.text-primary;
+            text: root.is-am ? "AM" : "PM";
+            font-weight: 600;
+            x: parent.width;
+            y: 0.5 * parent.height;
+        }
     }
 }

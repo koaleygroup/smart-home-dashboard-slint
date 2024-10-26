@@ -1,6 +1,8 @@
 # Smart Home Dashboard in Slint C++
 
-A Smart Home C++ application that's using [Slint](https://slint.dev) for the user interface and CMake for the build system. The app is intended to be run on Raspberry Pi 4 having a 10" capacitive screen, but for development purposes we'll be working on desktop.
+A Smart Home C++ application that's using [Slint](https://slint.dev) for the user interface and CMake for the build system. The app is intended to be run on Raspberry Pi 4 having a 10" capacitive screen, but for development purposes we'll be working on desktop. This is rewrite of work done [here](https://github.com/allankoechke/SmartHomeDashboardNew/) in Slint.
+
+![Screenshot](./screenshot.png)
 
 ## About
 

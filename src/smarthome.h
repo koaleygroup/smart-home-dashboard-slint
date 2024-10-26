@@ -13,6 +13,10 @@ public:
 
 private:
     // Handle Callbacks here
+
+    // Handles upadating date components in the User interface
+    // This handle is called every '1s' from the Timer triggered callback
+    // within the DateCard on the dashboard.
     void on_update_current_datetime();
 
 private:

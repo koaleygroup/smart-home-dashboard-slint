@@ -21,10 +21,10 @@ void SmartHome::on_update_current_datetime() {
     std::time_t ts = std::time(nullptr);
     // std::cout << std::ctime(&ts);
 
-    char date_fmt[50], time_fmt[10], time_ap[8], dow_fmt[8];
+    char date_fmt[20], time_fmt[10], time_ap[8], dow_fmt[8];
 
     // Format the time to YYYY-MM-dd
-    std::strftime(date_fmt, 50, "%F", std::localtime(&ts));
+    std::strftime(date_fmt, 20, "%F", std::localtime(&ts));
 
     // Format the current time to HH:MM
     std::strftime(time_fmt, 10, "%R", std::localtime(&ts));
